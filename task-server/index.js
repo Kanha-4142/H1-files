@@ -10,13 +10,13 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send('Api Start');
+    res.send('H1 Api Was Started');
 })
 
 app.get('/api/h1-text', (req, res) => {
     fs.readFile('h1-text.txt', 'utf8', (err, data) => {
         if (err) {
-            return res.status(500).send('Error reading h1 text');
+            return res.send('Error reading h1 text');
         }
         res.send({ text: data });
     });
@@ -26,7 +26,7 @@ app.post('/api/h1-text', (req, res) => {
     const newText = req.body.text;
     fs.writeFile('h1-text.txt', newText, (err) => {
         if (err) {
-            return res.status(500).send('Error writing h1 text');
+            return res.send('Error writing h1 text');
         }
         res.send({ text: newText });
     });
