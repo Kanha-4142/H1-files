@@ -7,14 +7,14 @@ function App() {
   const [newH1Text, setNewH1Text] = useState('');
 
   useEffect(() => {
-    axios.get('h1-files.vercel.app/api/h1-text')
+    axios.get('http://127.0.0.1:5000/api/h1-text')
       .then(response => {
         setH1Text(response.data.text);
       })
   }, []);
 
   const handleUpdateClick = () => {
-    axios.post('h1-files.vercel.app/api/h1-text', { text: newH1Text })
+    axios.post('http://127.0.0.1:5000/api/h1-text', { text: newH1Text })
       .then(response => {
         setH1Text(response.data.text);
         setNewH1Text('');
