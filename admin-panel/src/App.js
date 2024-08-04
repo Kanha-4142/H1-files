@@ -11,9 +11,6 @@ function App() {
       .then(response => {
         setH1Text(response.data.text);
       })
-      .catch(error => {
-        console.error('There was an error fetching the h1 text!', error);
-      });
   }, []);
 
   const handleUpdateClick = () => {
@@ -22,9 +19,7 @@ function App() {
         setH1Text(response.data.text);
         setNewH1Text('');
       })
-      .catch(error => {
-        console.error('There was an error updating the h1 text!', error);
-      });
+      
   };
 
   return (
